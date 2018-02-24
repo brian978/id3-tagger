@@ -8,11 +8,6 @@ class BaseTag(object):
     _track = None
     _handler = None
 
-    @staticmethod
-    def _encode(data):
-        """ Formats the data for a specific format"""
-        return data.encode("utf8", "replace")
-
     @classmethod
     def name(cls):
         return str(cls.__name__).lower()
@@ -24,7 +19,7 @@ class BaseTag(object):
         self._tag_key = self._keys[track.__class__.__name__]
 
     def get(self):
-        return BaseTag._encode(self._handler.get_value(self._track, self._tag_key))
+        return self._handler.get_value(self._track, self._tag_key)
 
     def set(self, value):
         return self._handler.set_value(self._track, self._tag_key, value)

@@ -1,4 +1,3 @@
-import types
 import mutagen
 from media.private import tags, repository
 
@@ -9,14 +8,14 @@ class Track(object):
 
     def __init__(self, abs_path):
         track_obj = mutagen.File(abs_path)
-        if isinstance(track_obj, types.NoneType):
+        if track_obj is None:
             raise ImportError("The file '" + abs_path + "' cannot be loaded")
 
         self.__track = track_obj
         self.__tags = repository.TagsRepository(track_obj)
 
     def get_tags(self):
-        return self.__tags
+        return self.__tags.get_repository().items()
 
     def save(self):
         self.__track.save()

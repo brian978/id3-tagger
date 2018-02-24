@@ -1,6 +1,6 @@
-import tags
-import handlers
 import inspect
+from . import tags
+from . import handlers
 
 
 class HandlersRepository(object):
@@ -60,9 +60,6 @@ class TagsRepository(object):
     def __init__(self, track):
         """ TagsRepository constructors """
         self.__load(track)
-
-    def __iter__(self):
-        return self.__repository.iteritems()
 
     def get_repository(self):
         return self.__repository

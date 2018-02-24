@@ -13,7 +13,7 @@ class Mp3Tags(BaseHandler):
 
     @staticmethod
     def set_value(track, tag_key, value):
-        track.get(tag_key).text[0] = unicode(value)
+        track.get(tag_key).text[0] = value
 
 
 class Mp4Tags(BaseHandler):
@@ -25,4 +25,4 @@ class Mp4Tags(BaseHandler):
 
     @staticmethod
     def set_value(track, tag_key, value):
-        track.get(tag_key)[0] = unicode(value)
+        track.get(tag_key)[0] = value
