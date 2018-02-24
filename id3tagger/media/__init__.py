@@ -1,5 +1,5 @@
 import mutagen
-from media.private import tags, repository
+from .private import tags, repository
 
 
 class Track(object):

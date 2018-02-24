@@ -1,7 +1,7 @@
 import os
-from helpers import prompt, resolve_path
-from media import Track
-from media.private import BaseTag
+from id3tagger.helpers import prompt, resolve_path
+from id3tagger.media import Track
+from id3tagger.media.private import BaseTag
 
 
 abs_path = resolve_path(prompt("Absolute path of the file: "))
