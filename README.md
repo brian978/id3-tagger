@@ -11,3 +11,12 @@ on the supported audio files
 # Supported tags
 * Artist
 * Title
+* Album
+* Album artist
+* Grouping
+* Genre
+* Year
+* Track number
+* Disk number
+* Bpm
+* Comments
