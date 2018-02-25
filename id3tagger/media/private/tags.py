@@ -65,7 +65,14 @@ class Year(BaseTag):
         if not isinstance(value, str) or len(value) < 4:
             value = None
 
-        super(Year, self).set(mutagen.id3.ID3TimeStamp(value))
+        if self._track.__class__.__name__ == MP4.__name__:
+            return super(Year, self).set(value)
+
+        return super(Year, self).set(mutagen.id3.ID3TimeStamp(value))
+
+    def get(self):
+        value = super(Year, self).get()
+        return value
 
 
 class TrackNumber(BaseTag):
@@ -90,6 +97,10 @@ class Bpm(BaseTag):
         AIFF.__name__: mutagen.id3.TBPM,
         MP4.__name__: "tmpo",
     }
+
+    def set(self, value):
+        value = int(value)
+        super(Bpm, self).set(value)
 
 
 class Comments(BaseTag):
